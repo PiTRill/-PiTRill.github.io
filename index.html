@@ -96,7 +96,7 @@
                 lineJoin: 'bevel',
                 weight: 4.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_watershed_1');
@@ -104,7 +104,7 @@
         map.getPane('pane_watershed_1').style['mix-blend-mode'] = 'normal';
         var layer_watershed_1 = new L.geoJson(json_watershed_1, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_watershed_1',
             layerName: 'layer_watershed_1',
             pane: 'pane_watershed_1',
