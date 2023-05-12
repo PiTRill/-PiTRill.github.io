@@ -757,7 +757,7 @@ function fnc_project_color(values, context) {
 
 
 
-function exp_label_watershed_2_eval_expression(context) {
+function exp_label_watershed_1_eval_expression(context) {
     // concat('Schelde watershed' || '\n' || "Area (km2)", 'km²')
 
     var feature = context.feature;
@@ -770,7 +770,7 @@ function exp_label_watershed_2_eval_expression(context) {
 }
 
 
-function exp_label_localities_3_eval_expression(context) {
+function exp_label_localities_2_eval_expression(context) {
     // concat("Name Fren" || '\n' || "Area (km2)", 'km²')
 
     var feature = context.feature;

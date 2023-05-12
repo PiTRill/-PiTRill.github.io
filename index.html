@@ -34,10 +34,9 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/FRA_BEL_NED_1.js"></script>
-        <script src="data/watershed_2.js"></script>
-        <script src="data/localities_3.js"></script>
-        <script src="data/sections_4.js"></script>
+        <script src="data/watershed_1.js"></script>
+        <script src="data/localities_2.js"></script>
+        <script src="data/sections_3.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
@@ -78,82 +77,7 @@
         });
         layer_OSMStandard_0;
         map.addLayer(layer_OSMStandard_0);
-        function pop_FRA_BEL_NED_1(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2"><strong>Name</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Area km2</strong><br />' + (feature.properties['Area km2'] !== null ? autolinker.link(feature.properties['Area km2'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_FRA_BEL_NED_1_0(feature) {
-            switch(String(feature.properties['NAME'])) {
-                case 'Belgium':
-                    return {
-                pane: 'pane_FRA_BEL_NED_1',
-                opacity: 1,
-                color: 'rgba(30,30,211,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(17,24,228,0.0)',
-                interactive: false,
-            }
-                    break;
-                case 'France':
-                    return {
-                pane: 'pane_FRA_BEL_NED_1',
-                opacity: 1,
-                color: 'rgba(215,29,128,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(215,29,128,0.0)',
-                interactive: false,
-            }
-                    break;
-                case 'Netherlands':
-                    return {
-                pane: 'pane_FRA_BEL_NED_1',
-                opacity: 1,
-                color: 'rgba(217,176,73,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(217,176,73,0.0)',
-                interactive: false,
-            }
-                    break;
-            }
-        }
-        map.createPane('pane_FRA_BEL_NED_1');
-        map.getPane('pane_FRA_BEL_NED_1').style.zIndex = 401;
-        map.getPane('pane_FRA_BEL_NED_1').style['mix-blend-mode'] = 'normal';
-        var layer_FRA_BEL_NED_1 = new L.geoJson(json_FRA_BEL_NED_1, {
-            attribution: '',
-            interactive: false,
-            dataVar: 'json_FRA_BEL_NED_1',
-            layerName: 'layer_FRA_BEL_NED_1',
-            pane: 'pane_FRA_BEL_NED_1',
-            onEachFeature: pop_FRA_BEL_NED_1,
-            style: style_FRA_BEL_NED_1_0,
-        });
-        bounds_group.addLayer(layer_FRA_BEL_NED_1);
-        map.addLayer(layer_FRA_BEL_NED_1);
-        function pop_watershed_2(feature, layer) {
+        function pop_watershed_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Area (km2)</strong><br />' + (feature.properties['Area (km2)'] !== null ? autolinker.link(feature.properties['Area (km2)'].toLocaleString()) : '') + '</td>\
@@ -162,9 +86,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_watershed_2_0() {
+        function style_watershed_1_0() {
             return {
-                pane: 'pane_watershed_2',
+                pane: 'pane_watershed_1',
                 opacity: 1,
                 color: 'rgba(53,121,177,1.0)',
                 dashArray: '',
@@ -172,24 +96,24 @@
                 lineJoin: 'bevel',
                 weight: 4.0,
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
         }
-        map.createPane('pane_watershed_2');
-        map.getPane('pane_watershed_2').style.zIndex = 402;
-        map.getPane('pane_watershed_2').style['mix-blend-mode'] = 'normal';
-        var layer_watershed_2 = new L.geoJson(json_watershed_2, {
+        map.createPane('pane_watershed_1');
+        map.getPane('pane_watershed_1').style.zIndex = 401;
+        map.getPane('pane_watershed_1').style['mix-blend-mode'] = 'normal';
+        var layer_watershed_1 = new L.geoJson(json_watershed_1, {
             attribution: '',
-            interactive: false,
-            dataVar: 'json_watershed_2',
-            layerName: 'layer_watershed_2',
-            pane: 'pane_watershed_2',
-            onEachFeature: pop_watershed_2,
-            style: style_watershed_2_0,
+            interactive: true,
+            dataVar: 'json_watershed_1',
+            layerName: 'layer_watershed_1',
+            pane: 'pane_watershed_1',
+            onEachFeature: pop_watershed_1,
+            style: style_watershed_1_0,
         });
-        bounds_group.addLayer(layer_watershed_2);
-        map.addLayer(layer_watershed_2);
-        function pop_localities_3(feature, layer) {
+        bounds_group.addLayer(layer_watershed_1);
+        map.addLayer(layer_watershed_1);
+        function pop_localities_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Area (km2)</strong><br />' + (feature.properties['Area (km2)'] !== null ? autolinker.link(feature.properties['Area (km2)'].toLocaleString()) : '') + '</td>\
@@ -216,9 +140,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_localities_3_0() {
+        function style_localities_2_0() {
             return {
-                pane: 'pane_localities_3',
+                pane: 'pane_localities_2',
                 opacity: 1,
                 color: 'rgba(24,34,35,0.5568627450980392)',
                 dashArray: '',
@@ -231,21 +155,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_localities_3');
-        map.getPane('pane_localities_3').style.zIndex = 403;
-        map.getPane('pane_localities_3').style['mix-blend-mode'] = 'normal';
-        var layer_localities_3 = new L.geoJson(json_localities_3, {
+        map.createPane('pane_localities_2');
+        map.getPane('pane_localities_2').style.zIndex = 402;
+        map.getPane('pane_localities_2').style['mix-blend-mode'] = 'normal';
+        var layer_localities_2 = new L.geoJson(json_localities_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_localities_3',
-            layerName: 'layer_localities_3',
-            pane: 'pane_localities_3',
-            onEachFeature: pop_localities_3,
-            style: style_localities_3_0,
+            dataVar: 'json_localities_2',
+            layerName: 'layer_localities_2',
+            pane: 'pane_localities_2',
+            onEachFeature: pop_localities_2,
+            style: style_localities_2_0,
         });
-        bounds_group.addLayer(layer_localities_3);
-        map.addLayer(layer_localities_3);
-        function pop_sections_4(feature, layer) {
+        bounds_group.addLayer(layer_localities_2);
+        map.addLayer(layer_localities_2);
+        function pop_sections_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>River</strong><br />' + (feature.properties['River'] !== null ? autolinker.link(feature.properties['River'].toLocaleString()) : '') + '</td>\
@@ -284,11 +208,11 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_sections_4_0(feature) {
+        function style_sections_3_0(feature) {
             switch(String(feature.properties['Code'])) {
                 case 'DE10':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(230,123,60,1.0)',
                 dashArray: '',
@@ -301,7 +225,7 @@
                     break;
                 case 'DE100':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(123,59,218,1.0)',
                 dashArray: '',
@@ -314,7 +238,7 @@
                     break;
                 case 'DE28':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(213,21,123,1.0)',
                 dashArray: '',
@@ -327,7 +251,7 @@
                     break;
                 case 'DE29':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(222,238,117,1.0)',
                 dashArray: '',
@@ -340,7 +264,7 @@
                     break;
                 case 'DE30':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(222,98,185,1.0)',
                 dashArray: '',
@@ -353,7 +277,7 @@
                     break;
                 case 'DE6':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(109,232,65,1.0)',
                 dashArray: '',
@@ -366,7 +290,7 @@
                     break;
                 case 'DE7':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(47,231,26,1.0)',
                 dashArray: '',
@@ -379,7 +303,7 @@
                     break;
                 case 'DE8':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(209,201,57,1.0)',
                 dashArray: '',
@@ -392,7 +316,7 @@
                     break;
                 case 'DE81':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(205,116,33,1.0)',
                 dashArray: '',
@@ -405,7 +329,7 @@
                     break;
                 case 'DE82':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(58,207,185,1.0)',
                 dashArray: '',
@@ -418,7 +342,7 @@
                     break;
                 case 'DE84':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(181,27,220,1.0)',
                 dashArray: '',
@@ -431,7 +355,7 @@
                     break;
                 case 'DE9':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(129,215,16,1.0)',
                 dashArray: '',
@@ -444,7 +368,7 @@
                     break;
                 case 'DI11':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(125,15,208,1.0)',
                 dashArray: '',
@@ -457,7 +381,7 @@
                     break;
                 case 'DI12':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(27,194,236,1.0)',
                 dashArray: '',
@@ -470,7 +394,7 @@
                     break;
                 case 'DI13':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(138,227,220,1.0)',
                 dashArray: '',
@@ -483,7 +407,7 @@
                     break;
                 case 'DI14':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(235,23,239,1.0)',
                 dashArray: '',
@@ -496,7 +420,7 @@
                     break;
                 case 'DI15':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(212,237,138,1.0)',
                 dashArray: '',
@@ -509,7 +433,7 @@
                     break;
                 case 'DU31':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(112,202,87,1.0)',
                 dashArray: '',
@@ -522,7 +446,7 @@
                     break;
                 case 'DU32':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(203,127,238,1.0)',
                 dashArray: '',
@@ -535,7 +459,7 @@
                     break;
                 case 'EC42':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(58,172,229,1.0)',
                 dashArray: '',
@@ -548,7 +472,7 @@
                     break;
                 case 'EC43':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(113,94,224,1.0)',
                 dashArray: '',
@@ -561,7 +485,7 @@
                     break;
                 case 'EC44':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(200,76,194,1.0)',
                 dashArray: '',
@@ -574,7 +498,7 @@
                     break;
                 case 'ER39':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(213,95,164,1.0)',
                 dashArray: '',
@@ -587,7 +511,7 @@
                     break;
                 case 'ER40':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(203,111,126,1.0)',
                 dashArray: '',
@@ -600,7 +524,7 @@
                     break;
                 case 'ER41':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(229,231,127,1.0)',
                 dashArray: '',
@@ -613,7 +537,7 @@
                     break;
                 case 'GR22':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(159,55,219,1.0)',
                 dashArray: '',
@@ -626,7 +550,7 @@
                     break;
                 case 'GR23':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(208,97,225,1.0)',
                 dashArray: '',
@@ -639,7 +563,7 @@
                     break;
                 case 'GR24':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(113,37,207,1.0)',
                 dashArray: '',
@@ -652,7 +576,7 @@
                     break;
                 case 'GR25':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(231,59,21,1.0)',
                 dashArray: '',
@@ -665,7 +589,7 @@
                     break;
                 case 'GR26':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(227,29,52,1.0)',
                 dashArray: '',
@@ -678,7 +602,7 @@
                     break;
                 case 'GR27':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(232,110,189,1.0)',
                 dashArray: '',
@@ -691,7 +615,7 @@
                     break;
                 case 'GR88':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(221,86,76,1.0)',
                 dashArray: '',
@@ -704,7 +628,7 @@
                     break;
                 case 'HA74':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(237,220,64,1.0)',
                 dashArray: '',
@@ -717,7 +641,7 @@
                     break;
                 case 'HA75':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(86,208,167,1.0)',
                 dashArray: '',
@@ -730,7 +654,7 @@
                     break;
                 case 'HA96':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(131,103,233,1.0)',
                 dashArray: '',
@@ -743,7 +667,7 @@
                     break;
                 case 'HA97':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(67,110,226,1.0)',
                 dashArray: '',
@@ -756,7 +680,7 @@
                     break;
                 case 'LE2':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(201,166,114,1.0)',
                 dashArray: '',
@@ -769,7 +693,7 @@
                     break;
                 case 'LE3':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(202,58,91,1.0)',
                 dashArray: '',
@@ -782,7 +706,7 @@
                     break;
                 case 'LE4':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(109,124,219,1.0)',
                 dashArray: '',
@@ -795,7 +719,7 @@
                     break;
                 case 'LE5':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(214,80,127,1.0)',
                 dashArray: '',
@@ -808,7 +732,7 @@
                     break;
                 case 'LE76':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(210,175,88,1.0)',
                 dashArray: '',
@@ -821,7 +745,7 @@
                     break;
                 case 'LE77':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(110,208,225,1.0)',
                 dashArray: '',
@@ -834,7 +758,7 @@
                     break;
                 case 'LE86':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(100,135,210,1.0)',
                 dashArray: '',
@@ -847,7 +771,7 @@
                     break;
                 case 'LE87':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(166,213,85,1.0)',
                 dashArray: '',
@@ -860,7 +784,7 @@
                     break;
                 case 'LE89':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(22,63,227,1.0)',
                 dashArray: '',
@@ -873,7 +797,7 @@
                     break;
                 case 'LE90':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(231,168,96,1.0)',
                 dashArray: '',
@@ -886,7 +810,7 @@
                     break;
                 case 'LE91':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(34,214,70,1.0)',
                 dashArray: '',
@@ -899,7 +823,7 @@
                     break;
                 case 'LE98':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(13,131,205,1.0)',
                 dashArray: '',
@@ -912,7 +836,7 @@
                     break;
                 case 'LE99':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(140,220,87,1.0)',
                 dashArray: '',
@@ -925,7 +849,7 @@
                     break;
                 case 'RU1':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(207,83,132,1.0)',
                 dashArray: '',
@@ -938,7 +862,7 @@
                     break;
                 case 'SC20':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(230,20,79,1.0)',
                 dashArray: '',
@@ -951,7 +875,7 @@
                     break;
                 case 'SC21':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(101,150,213,1.0)',
                 dashArray: '',
@@ -964,7 +888,7 @@
                     break;
                 case 'SC49':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(217,178,100,1.0)',
                 dashArray: '',
@@ -977,7 +901,7 @@
                     break;
                 case 'SC50':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(212,73,222,1.0)',
                 dashArray: '',
@@ -990,7 +914,7 @@
                     break;
                 case 'SC51':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(180,210,116,1.0)',
                 dashArray: '',
@@ -1003,7 +927,7 @@
                     break;
                 case 'SC52':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(78,126,204,1.0)',
                 dashArray: '',
@@ -1016,7 +940,7 @@
                     break;
                 case 'SC53':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(116,240,149,1.0)',
                 dashArray: '',
@@ -1029,7 +953,7 @@
                     break;
                 case 'SC54':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(210,100,21,1.0)',
                 dashArray: '',
@@ -1042,7 +966,7 @@
                     break;
                 case 'SC55':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(37,197,212,1.0)',
                 dashArray: '',
@@ -1055,7 +979,7 @@
                     break;
                 case 'SC56':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(129,223,187,1.0)',
                 dashArray: '',
@@ -1068,7 +992,7 @@
                     break;
                 case 'SC57':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(119,204,201,1.0)',
                 dashArray: '',
@@ -1081,7 +1005,7 @@
                     break;
                 case 'SC58':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(55,70,234,1.0)',
                 dashArray: '',
@@ -1094,7 +1018,7 @@
                     break;
                 case 'SC59':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(234,212,100,1.0)',
                 dashArray: '',
@@ -1107,7 +1031,7 @@
                     break;
                 case 'SC60':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(102,225,170,1.0)',
                 dashArray: '',
@@ -1120,7 +1044,7 @@
                     break;
                 case 'SC61':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(61,211,181,1.0)',
                 dashArray: '',
@@ -1133,7 +1057,7 @@
                     break;
                 case 'SC62':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(104,221,163,1.0)',
                 dashArray: '',
@@ -1146,7 +1070,7 @@
                     break;
                 case 'SC63':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(212,107,112,1.0)',
                 dashArray: '',
@@ -1159,7 +1083,7 @@
                     break;
                 case 'SC64':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(100,223,38,1.0)',
                 dashArray: '',
@@ -1172,7 +1096,7 @@
                     break;
                 case 'SC65':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(194,119,219,1.0)',
                 dashArray: '',
@@ -1185,7 +1109,7 @@
                     break;
                 case 'SC66':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(201,50,173,1.0)',
                 dashArray: '',
@@ -1198,7 +1122,7 @@
                     break;
                 case 'SC67':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(75,223,132,1.0)',
                 dashArray: '',
@@ -1211,7 +1135,7 @@
                     break;
                 case 'SC68':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(219,113,78,1.0)',
                 dashArray: '',
@@ -1224,7 +1148,7 @@
                     break;
                 case 'SC69':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(202,75,75,1.0)',
                 dashArray: '',
@@ -1237,7 +1161,7 @@
                     break;
                 case 'SC70':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(202,220,128,1.0)',
                 dashArray: '',
@@ -1250,7 +1174,7 @@
                     break;
                 case 'SC71':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(228,49,21,1.0)',
                 dashArray: '',
@@ -1263,7 +1187,7 @@
                     break;
                 case 'SC72':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(216,22,113,1.0)',
                 dashArray: '',
@@ -1276,7 +1200,7 @@
                     break;
                 case 'SC73':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(223,90,210,1.0)',
                 dashArray: '',
@@ -1289,7 +1213,7 @@
                     break;
                 case 'SC78':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(101,57,222,1.0)',
                 dashArray: '',
@@ -1302,7 +1226,7 @@
                     break;
                 case 'SC79':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(31,23,239,1.0)',
                 dashArray: '',
@@ -1315,7 +1239,7 @@
                     break;
                 case 'SC80':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(136,226,133,1.0)',
                 dashArray: '',
@@ -1328,7 +1252,7 @@
                     break;
                 case 'SC85':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(42,45,215,1.0)',
                 dashArray: '',
@@ -1341,7 +1265,7 @@
                     break;
                 case 'SC92':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(28,202,51,1.0)',
                 dashArray: '',
@@ -1354,7 +1278,7 @@
                     break;
                 case 'SC93':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(126,33,213,1.0)',
                 dashArray: '',
@@ -1367,7 +1291,7 @@
                     break;
                 case 'SC94':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(223,237,20,1.0)',
                 dashArray: '',
@@ -1380,7 +1304,7 @@
                     break;
                 case 'SC95':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(112,208,142,1.0)',
                 dashArray: '',
@@ -1393,7 +1317,7 @@
                     break;
                 case 'SE33':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(82,144,206,1.0)',
                 dashArray: '',
@@ -1406,7 +1330,7 @@
                     break;
                 case 'SE34':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(235,88,201,1.0)',
                 dashArray: '',
@@ -1419,7 +1343,7 @@
                     break;
                 case 'SE35':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(24,238,28,1.0)',
                 dashArray: '',
@@ -1432,7 +1356,7 @@
                     break;
                 case 'SE36':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(139,101,216,1.0)',
                 dashArray: '',
@@ -1445,7 +1369,7 @@
                     break;
                 case 'SE37':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(70,176,214,1.0)',
                 dashArray: '',
@@ -1458,7 +1382,7 @@
                     break;
                 case 'SE38':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(137,231,206,1.0)',
                 dashArray: '',
@@ -1471,7 +1395,7 @@
                     break;
                 case 'SE47':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(134,228,34,1.0)',
                 dashArray: '',
@@ -1484,7 +1408,7 @@
                     break;
                 case 'SE48':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(232,97,39,1.0)',
                 dashArray: '',
@@ -1497,7 +1421,7 @@
                     break;
                 case 'WA45':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(129,204,115,1.0)',
                 dashArray: '',
@@ -1510,7 +1434,7 @@
                     break;
                 case 'WA46':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(113,208,154,1.0)',
                 dashArray: '',
@@ -1523,7 +1447,7 @@
                     break;
                 case 'ZE16':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(70,55,204,1.0)',
                 dashArray: '',
@@ -1536,7 +1460,7 @@
                     break;
                 case 'ZE17':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(69,158,231,1.0)',
                 dashArray: '',
@@ -1549,7 +1473,7 @@
                     break;
                 case 'ZE18':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(91,204,101,1.0)',
                 dashArray: '',
@@ -1562,7 +1486,7 @@
                     break;
                 case 'ZE19':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(147,207,98,1.0)',
                 dashArray: '',
@@ -1575,7 +1499,7 @@
                     break;
                 case 'ZE83':
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(215,197,131,1.0)',
                 dashArray: '',
@@ -1588,7 +1512,7 @@
                     break;
                 default:
                     return {
-                pane: 'pane_sections_4',
+                pane: 'pane_sections_3',
                 opacity: 1,
                 color: 'rgba(50,209,215,1.0)',
                 dashArray: '',
@@ -1601,20 +1525,20 @@
                     break;
             }
         }
-        map.createPane('pane_sections_4');
-        map.getPane('pane_sections_4').style.zIndex = 404;
-        map.getPane('pane_sections_4').style['mix-blend-mode'] = 'normal';
-        var layer_sections_4 = new L.geoJson(json_sections_4, {
+        map.createPane('pane_sections_3');
+        map.getPane('pane_sections_3').style.zIndex = 403;
+        map.getPane('pane_sections_3').style['mix-blend-mode'] = 'normal';
+        var layer_sections_3 = new L.geoJson(json_sections_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_sections_4',
-            layerName: 'layer_sections_4',
-            pane: 'pane_sections_4',
-            onEachFeature: pop_sections_4,
-            style: style_sections_4_0,
+            dataVar: 'json_sections_3',
+            layerName: 'layer_sections_3',
+            pane: 'pane_sections_3',
+            onEachFeature: pop_sections_3,
+            style: style_sections_3_0,
         });
-        bounds_group.addLayer(layer_sections_4);
-        map.addLayer(layer_sections_4);
+        bounds_group.addLayer(layer_sections_3);
+        map.addLayer(layer_sections_3);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -1627,13 +1551,13 @@
         .title += 'Search for a place';
         map.on("zoomend", function(){
 
-                if (map.hasLayer(layer_localities_3)) {
+                if (map.hasLayer(layer_localities_2)) {
                     if (map.getZoom() <= 10 && map.getZoom() >= 19) {
-                        layer_localities_3.eachLayer(function (layer) {
+                        layer_localities_2.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_localities_3.eachLayer(function (layer) {
+                        layer_localities_2.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
@@ -1641,12 +1565,12 @@
         });
         setBounds();
         var i = 0;
-        layer_FRA_BEL_NED_1.eachLayer(function(layer) {
+        layer_watershed_1.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 6pt; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_FRA_BEL_NED_1'});
+            layer.bindTooltip((exp_label_watershed_1_eval_expression(context) !== null?String('<div style="color: #3579b1; font-size: 7pt; font-family: \'Arial\', sans-serif;">' + exp_label_watershed_1_eval_expression(context)) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_watershed_1'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -1654,12 +1578,12 @@
               i++;
         });
         var i = 0;
-        layer_watershed_2.eachLayer(function(layer) {
+        layer_localities_2.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((exp_label_watershed_2_eval_expression(context) !== null?String('<div style="color: #3579b1; font-size: 7pt; font-family: \'Arial\', sans-serif;">' + exp_label_watershed_2_eval_expression(context)) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_watershed_2'});
+            layer.bindTooltip((exp_label_localities_2_eval_expression(context) !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Arial\', sans-serif;">' + exp_label_localities_2_eval_expression(context)) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_localities_2'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -1667,51 +1591,38 @@
               i++;
         });
         var i = 0;
-        layer_localities_3.eachLayer(function(layer) {
+        layer_sections_3.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((exp_label_localities_3_eval_expression(context) !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Arial\', sans-serif;">' + exp_label_localities_3_eval_expression(context)) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_localities_3'});
+            layer.bindTooltip((layer.feature.properties['River'] !== null?String('<div style="color: #0091ca; font-size: 10pt; font-style: italic; font-family: \'Cambria\', sans-serif;">' + layer.feature.properties['River']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_sections_3'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        var i = 0;
-        layer_sections_4.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['River'] !== null?String('<div style="color: #0091ca; font-size: 10pt; font-style: italic; font-family: \'Cambria\', sans-serif;">' + layer.feature.properties['River']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_sections_4'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-                if (map.hasLayer(layer_localities_3)) {
+                if (map.hasLayer(layer_localities_2)) {
                     if (map.getZoom() <= 10 && map.getZoom() >= 19) {
-                        layer_localities_3.eachLayer(function (layer) {
+                        layer_localities_2.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_localities_3.eachLayer(function (layer) {
+                        layer_localities_2.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-        resetLabels([layer_FRA_BEL_NED_1,layer_watershed_2,layer_localities_3,layer_sections_4]);
+        resetLabels([layer_watershed_1,layer_localities_2,layer_sections_3]);
         map.on("zoomend", function(){
-            resetLabels([layer_FRA_BEL_NED_1,layer_watershed_2,layer_localities_3,layer_sections_4]);
+            resetLabels([layer_watershed_1,layer_localities_2,layer_sections_3]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_FRA_BEL_NED_1,layer_watershed_2,layer_localities_3,layer_sections_4]);
+            resetLabels([layer_watershed_1,layer_localities_2,layer_sections_3]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_FRA_BEL_NED_1,layer_watershed_2,layer_localities_3,layer_sections_4]);
+            resetLabels([layer_watershed_1,layer_localities_2,layer_sections_3]);
         });
         </script>
     </body>
